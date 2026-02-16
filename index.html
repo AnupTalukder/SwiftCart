@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce application design</title>
+
+    <!-- link css file  -->
+    <link rel="stylesheet" href="style/style.css">
+
+    <!-- link daisy-ui and tailwind css -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- font adding -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body>
+    <!-- navbar section -->
+
+    <header class="bg-base-100 shadow-sm bg-slate-100">
+        <div class="navbar md:px-20">
+            <div class="navbar-start">
+
+                <div class="sm:text-center items-center ">
+                    <a class="sm:text-center items-center btn btn-ghost text-xl text-blue-500 md:btn btn-ghost ">SwiftCard
+                    </a>
+                </div>
+            </div>
+
+            <div class="navbar-center  hidden md:flex">
+
+                <ul class="menu menu-horizontal px-1 gap-3">
+
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        Products
+                    </li>
+                    <li>
+                        About
+                    </li>
+                    <li>
+                        Contact
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="navbar-end">
+                <ul>
+                    <li> <i class="fa-solid fa-cart-shopping"></i> </li>
+                </ul>
+
+            </div>
+
+            <div class="dropdown justify-end">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow justify-end">
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        Products
+                    </li>
+                    <li>
+                        About
+                    </li>
+                    <li>
+                        Contact
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="">
+        <!-- min-h-screen -->
+        <div class="hero min-h-screen" style="background-image: linear-gradient(to right, rgba(5, 20, 45, 0.95),  rgba(5, 20, 45, 0.8), rgba(5, 20, 45, 0.45), rgba(5, 20, 45, 0)
+), url(Assets/banner-image.png);">
+            <!-- <div class="hero-overlay bg-black/80"></div> -->
+            <div class="hero-content w-full justify-start px-6 md:px-20 text-neutral-content">
+                <div class="">
+                    <h1 class="mb-5 text-4xl font-bold">Best Collection For You</h1>
+                    <p class="mb-5">
+                        Discover the latest trends in fashion ,electronics,and more.shop with<br>confidence and style at
+                        SwiftCart
+                    </p>
+                    <button class="btn btn-primary">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- News letter  section-->
+    <footer class="footer sm:footer-horizontal p-3 bg-slate-800 md:pb-15">
+        <nav class="text-white mmd:pl-15">
+            <p class="text-xl text-blue-500">SwiftCart</p>
+            <P>your one-stop shop for all your fashion<br>and life-style needs.Quality products,fast<br> delivery, and
+                excellent support .</P>
+
+        </nav>
+        <nav class="text-white">
+            <h6 class="footer-title">QUICK LINKS</h6>
+            <a class="link link-hover">Home</a>
+            <a class="link link-hover">Products</a>
+            <a class="link link-hover">About</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+        <nav class="text-white">
+            <h6 class="footer-title">SUPPORT</h6>
+            <a class="link link-hover">FAQ</a>
+            <a class="link link-hover">Shipping</a>
+            <a class="link link-hover">Returns</a>
+            <a class="link link-hover">Privacy policy</a>
+        </nav>
+
+        <div>
+            <nav class="text-white pb-4">
+                <h6 class="footer-title">SUBSCRIBE TO OUR NEWSLETTER</h6>
+                <P>The latest news,articles,and resources,<br>
+                    sent to your inbox weekly</P>
+
+            </nav>
+            <form>
+
+                <div class="join">
+                    <input type="text" placeholder="Enter your name " class="input input-bordered join-item" />
+                    <button class="btn btn-primary join-item">Subscribe</button>
+                </div>
+
+            </form>
+        </div>
+    </footer>
+
+    <!-- <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 bg-slate-800 grid-col-reverse"> -->
+    <footer class="footer bg-slate-800 text-neutral-content p-4 flex flex-col-reverse px-14 sm:flex-row justify-between ">
+        <aside class="grid-flow-col items-center">
+            <p> © SwiftCart, Inc. All right reserved</p>
+        </aside>
+        <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end justify-center">
+           <a  class="text-2xl ">
+               <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            
+            <a  class="text-2xl ">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+
+            <a  class="text-2xl ">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a class="text-2xl">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a  class="text-2xl">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+
+        </nav>
+    </footer>
+
+
+    <!-- Connected js file  -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>
