@@ -1,4 +1,7 @@
 
+ let allproducts=[];
+
+//   show trending products 
 
 const GetTrending = () => {
     const url = "https://fakestoreapi.com/products"
@@ -21,6 +24,7 @@ const ShowTrending = (datas) => {
     const SelectContainer = document.getElementById("trending-card")
 
     const CreateDiv = document.createElement("div")
+
     CreateDiv.innerHTML = `
  
                 <div class="card bg-base-100 w-96 h-100 shadow-sm">
@@ -60,7 +64,9 @@ const GetProductAll = () => {
     const url = "https://fakestoreapi.com/products"
     fetch(url)
         .then(res => res.json())
-        .then(data => ShowProductsAll(data))
+        .then(data => {
+            allproducts=data;
+            ShowProductsAll(data)})
 
 
 }
@@ -127,7 +133,7 @@ document.getElementById("btnjewel").addEventListener("click", () => {
 
 
 
-
+// select and shows categorical producs 
 
 
 
@@ -205,57 +211,7 @@ const ShowCategoryProducts = (datas) => {
 SelectCategory();
 
 
-//open modal
-
-// const Geting = () => {
-//     const url = "https://fakestoreapi.com/products"
-//     fetch(url)
-//         .then(res => res.json())
-//         .then(data => (data))
-
-// }
-
-
-// // <!-- Open the modal using ID.showModal() method -->
-
-// const showModal = (id) => {
-//     console.log(id);
-
-
-
-//     for (let i = 0; i < data.length; i++) {
-
-//     }
-
-//     const SelectContainer = document.getElementById("show-modal")
-//     SelectContainer.innerHTML = " ";
-
-
-
-//     const CreateDiv = document.createElement("div")
-//     CreateDiv.innerHTML = `
-//         // <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
-//     <dialog id="my_modal_2" class="modal">
-//         <div class="modal-box">
-//             <h3 class="text-lg font-bold">Title</h3>
-//             <p class="py-4">Press ESC key or click outside to close</p>
-//             <div class="flex justify-between px-15">
-//                 <p class="font-bold pb-2">price </p>
-//                 <p class="font-bold pb-2">rating </p>
-//             </div>
-//             <button class="btn btn-primary">Buy Now</button>
-//         </div>
-
-
-//         <form method="dialog" class="modal-backdrop">
-//             <button>close</button>
-//         </form>
-//     </dialog>
-//  `;
-
-
-
-// }
+// show product section
 
 const btnPro = document.querySelectorAll(".btnpro");
 const hideAll = document.getElementById("hdnall");
@@ -269,4 +225,24 @@ const showProductsOnly = () => {
 btnPro.forEach(btn => {
   btn.addEventListener("click", showProductsOnly);
 });
-z
+
+
+//  show modal
+
+const showModal = (id) => {
+    const product = allproducts.find(p => p.id === id);
+    console.log(product);
+    if (!product) return;
+
+    const modalContent = document.getElementById("modal-content");
+    modalContent.innerHTML = `
+        <h3 class="text-lg font-bold">${product.title}</h3>
+        <p class="py-4">${product.description}</p>
+        <p class="font-bold">Category:<span class="font-normal pl-2">${product.category}<span></p>
+        <p class="font-bold">Price:<span class="font-normal pl-2"> $${product.price}</span></p>
+        <p class="font-bold">Rating:<span class="font-normal pl-2"> ${product.rating.rate} ( ${product.rating.count} )</span></p>
+        <button class="btn btn-primary mt-4">Buy Now</button>
+    `;
+
+    document.getElementById("product-modal").showModal();
+};
