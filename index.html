@@ -40,7 +40,7 @@
             <div class="navbar-start">
 
                 <div class="sm:text-center items-center ">
-                    <a class="sm:text-center items-center btn btn-ghost text-xl text-blue-500 md:btn btn-ghost ">SwiftCard
+                    <a class="sm:text-center items-center btn btn-ghost text-xl text-blue-500 md:btn btn-ghost " href="index.html">SwiftCard
                     </a>
                 </div>
             </div>
@@ -56,10 +56,10 @@
                         <a class="btnpro">Products</a>
                     </li>
                     <li>
-                        <a>About </a>
+                        <a href="index.html">About </a>
                     </li>
                     <li>
-                        <a>Contact</a>
+                        <a href="index.html">Contact</a>
                     </li>
 
                 </ul>
@@ -129,8 +129,8 @@
                     services</p>
             </div>
             <!-- 4 items card -->
-            <div class="flex flex-auto gap-5 flex-col sm:flex-row justify-between sm:py-2 md:px-20 py-6">
-                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
+            <div class="flex flex-auto gap-5 flex-col sm:flex-row justify-between sm:py-2 md:px-20 py-6 ">
+                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm hover:bg-indigo-100">
                     <div class="card-body">
                         <a class="text-2xl text-blue-500 bg-indigo-100 w-12 h-10 text-center ">
                             <i class="fa-regular fa-truck"></i>
@@ -143,7 +143,7 @@
 
                 </div>
 
-                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
+                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm hover:bg-indigo-100">
 
                     <div class="card-body pb-2">
                         <a class="text-2xl text-blue-500 bg-indigo-100 w-12 h-10 text-center">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
+                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm hover:bg-indigo-100">
 
                     <div class="card-body pb-2">
                         <a class="text-2xl text-blue-500 bg-indigo-100 w-12 h-10 text-center">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
 
-                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
+                <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm hover:bg-indigo-100">
 
                     <div class="card-body">
                         <a class="text-2xl text-blue-500  bg-indigo-100 w-12 h-10 text-center">
@@ -211,13 +211,13 @@
     <section class="sm:px-2 md:px-20 hidden " id="prod-sec">
 
         <div class="py-15">
-            <h2 class=" font-bold text-3xl pb-5 text-center"> Our Products </h2>
+            <h2 class=" font-bold text-4xl pb-5 text-center"> Our Products </h2>
             <div class="flex flex-wrap gap-3 justify-center ">
-                <button onclick=GetProductAll() class="btn btn-outline rounded-full">All</button>
-                <button id="btnelec" class="btn btn-outline rounded-full">Electronics</button>
-                <button id="btnjewel" class="btn btn-outline rounded-full">Jewelery</button>
-                <button id="btnMen" class="btn btn-outline rounded-full">Men's Clothing</button>
-                <button id="btnWomen" class="btn btn-outline rounded-full">Women's Clothing</button>
+                <button onclick=GetProductAll() class="hdnpro btn btn-outline rounded-full hidden:bg-blue-600 hover:bg-blue-300">All</button>
+                <button id="btnelec" class="btn btn-outline rounded-full hover:bg-blue-300">Electronics</button>
+                <button id="btnjewel" class="btn btn-outline rounded-full hover:bg-blue-300">Jewelery</button>
+                <button id="btnMen" class="btn btn-outline rounded-full hover:bg-blue-300">Men's Clothing</button>
+                <button id="btnWomen" class="btn btn-outline rounded-full hover:bg-blue-300">Women's Clothing</button>
             </div>
         </div>
         <!-- fetch products card using api -->
@@ -235,7 +235,7 @@
 <!-- modal -->
 
 <dialog id="product-modal" class="modal">
-    <div class="modal-box" id="modal-content">
+    <div class="modal-box hover:bg-indigo-100" id="modal-content">
 
     </div>
 
@@ -295,24 +295,24 @@
             <p> © SwiftCart, Inc. All right reserved</p>
         </aside>
         <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end justify-center">
-            <a class="text-2xl ">
+            <a class="text-2xl " href="https://www.facebook.com/programmingHero">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
 
 
-            <a class="text-2xl ">
+            <a class="text-2xl " href="index.html">
                 <i class="fa-brands fa-twitter"></i>
             </a>
 
-            <a class="text-2xl ">
+            <a class="text-2xl " href="index.html">
                 <i class="fa-brands fa-instagram"></i>
             </a>
 
-            <a class="text-2xl">
+            <a class="text-2xl" href="index.html">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
 
-            <a class="text-2xl">
+            <a class="text-2xl" href="index.html">
                 <i class="fa-regular fa-envelope"></i>
             </a>
 

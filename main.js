@@ -27,7 +27,7 @@ const ShowTrending = (datas) => {
 
     CreateDiv.innerHTML = `
  
-                <div class="card bg-base-100 w-96 h-100 shadow-sm">
+                <div class="card bg-base-100 w-96 h-100 shadow-sm hover:bg-indigo-100">
                     <figure class="overflow-hidden">
                         <img src=${datas.image}
                              class="w-full h-full"/>
@@ -41,7 +41,7 @@ const ShowTrending = (datas) => {
                         <p class="text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas.title}</p>
                         <p class="font-bold pb-2">$ ${datas.price}</p>
                         <div class="card-actions justify-between mt-auto">
-                            <div onclick="showModal(${datas.id})" class="badge badge-outline"><i class="fa-regular fa-eye"></i> Details</div>
+                            <div onclick="showModal(${datas.id})" class="badge badge-outline bg-blue-300"><i class="fa-regular fa-eye"></i> Details</div>
                             <div class="badge badge-outline bg-blue-600 text-white px-5 py-3"><i
                                     class="fa-solid fa-cart-shopping"></i> Add</div>
                         </div>
@@ -80,7 +80,7 @@ const ShowProductsAll = (datas) => {
         const CreateDiv = document.createElement("div")
         CreateDiv.innerHTML = `
  
-                <div class="card bg-base-100 w-96 h-100 shadow-sm">
+                <div class="card bg-base-100 w-96 h-100 shadow-sm hover:bg-indigo-100">
                     <figure class="overflow-hidden">
                         <img src=${datas[i].image}
                              class="w-full h-full"/>
@@ -94,7 +94,7 @@ const ShowProductsAll = (datas) => {
                         <p class="text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas[i].title}</p>
                         <p class="font-bold pb-2">$ ${datas[i].price}</p>
                         <div class="card-actions justify-between mt-auto">
-                            <div onclick="showModal(${datas[i].id})" class="badge badge-outline"><i class="fa-regular fa-eye"></i> Details</div>
+                            <div onclick="showModal(${datas[i].id})" class="badge badge-outline bg-blue-300"><i class="fa-regular fa-eye"></i> Details</div>
                             <div class="badge badge-outline bg-blue-600 text-white px-5 py-3"><i
                                     class="fa-solid fa-cart-shopping"></i> Add</div>
                         </div>
@@ -172,7 +172,7 @@ const ShowCategoryProducts = (datas) => {
         const CreateDiv = document.createElement("div")
         CreateDiv.innerHTML = `
  
-                <div class="card bg-base-100 w-96 h-100 shadow-sm">
+                <div class="card bg-base-100 w-96 h-100 shadow-sm hover:bg-indigo-100">
                    
                      <div class="overflow-hidden">
                         <img src=${datas[i].image}
@@ -189,7 +189,7 @@ const ShowCategoryProducts = (datas) => {
                         <p class="text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas[i].title}</p>
                         <p class="font-bold">$ ${datas[i].price}</p>
                         <div class="card-actions justify-between mt-auto">
-                            <div class="badge badge-outline" onclick="showModal(${datas[i].id})">
+                            <div class="badge badge-outline bg-blue-300" onclick="showModal(${datas[i].id})">
                                      <i class="fa-regular fa-eye"></i> Details
                             </div>
 
@@ -241,7 +241,11 @@ const showModal = (id) => {
         <p class="font-bold">Category:<span class="font-normal pl-2">${product.category}<span></p>
         <p class="font-bold">Price:<span class="font-normal pl-2"> $${product.price}</span></p>
         <p class="font-bold">Rating:<span class="font-normal pl-2"> ${product.rating.rate} ( ${product.rating.count} )</span></p>
-        <button class="btn btn-primary mt-4">Buy Now</button>
+        
+        <div class="flex justify-between">
+        <button class="btn btn-primary mt-4 rounded-sm">Buy Now</button>
+        <button class="btn btn-primary mt-4 rounded-sm">Add To Cart</button>
+        </div>
     `;
 
     document.getElementById("product-modal").showModal();
