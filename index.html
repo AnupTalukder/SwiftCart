@@ -50,16 +50,16 @@
                 <ul class="menu menu-horizontal px-1 gap-3">
 
                     <li>
-                        Home
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
-                        Products
+                       <a href="">Products</a> 
                     </li>
                     <li>
-                        About
+                        <a href="">About </a>
                     </li>
                     <li>
-                        Contact
+                        <a href="">Contact</a>
                     </li>
 
                 </ul>
@@ -82,17 +82,17 @@
                 </div>
                 <ul tabindex="-1"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow justify-end">
-                    <li>
-                        Home
+                  <li>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
-                        Products
+                       <a href="">Products</a> 
                     </li>
                     <li>
-                        About
+                        <a href="">About </a>
                     </li>
                     <li>
-                        Contact
+                        <a href="">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -122,22 +122,24 @@
     <section class="w-full my-15 ">
         <div class="mb-5">
             <h2 class="font-bold text-center text-3xl pb-2 "> Why Choose Us</h2>
-            <p class="text-center text-xl text-gray-600"> We provide the best shopping experience with top-notch services</p>
+            <p class="text-center text-xl text-gray-600"> We provide the best shopping experience with top-notch
+                services</p>
         </div>
         <!-- 4 items card -->
         <div class="flex flex-auto gap-5 flex-col sm:flex-row justify-between sm:py-2 md:px-20 py-6">
-            <div class="card bg-base-100 w-full sm:w-96 h-60 shadow-sm">
+            <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
                 <div class="card-body">
                     <a class="text-2xl text-blue-500 bg-indigo-100 w-12 h-10 text-center ">
                         <i class="fa-regular fa-truck"></i>
                     </a>
                     <h2 class="card-title pb-2">Fast Delivery</h2>
-                    <p class="text-gray-600">Get your orders delivered to<br> your doorstep quickly and<br> efficiently.</p>
+                    <p class="text-gray-600">Get your orders delivered to<br> your doorstep quickly and<br> efficiently.
+                    </p>
                 </div>
 
             </div>
 
-           <div class="card bg-base-100 w-full sm:w-96 h-60 shadow-sm">
+            <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
 
                 <div class="card-body pb-2">
                     <a class="text-2xl text-blue-500 bg-indigo-100 w-12 h-10 text-center">
@@ -148,7 +150,7 @@
                 </div>
             </div>
 
-           <div class="card bg-base-100 w-full sm:w-96 h-60 shadow-sm">
+            <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
 
                 <div class="card-body pb-2">
                     <a class="text-2xl text-blue-500 bg-indigo-100 w-12 h-10 text-center">
@@ -161,7 +163,7 @@
                 </div>
             </div>
 
-            <div class="card bg-base-100 w-full sm:w-96 h-60  shadow-sm">
+            <div class="card bg-base-100 w-full sm:w-96 h-60 pl-3 shadow-sm">
 
                 <div class="card-body">
                     <a class="text-2xl text-blue-500  bg-indigo-100 w-12 h-10 text-center">
@@ -179,11 +181,45 @@
 
 
     <!-- Trending now Section -->
-     <section>
+    <section class="sm:px-2 md:px-20">
+
+        <div>
+            <h2 class=" font-bold text-3xl text-left pb-5"> Trending Now </h2>
+        </div>
+        <!-- fetch trending card using api -->
+
+        <div >
+            <div id="trending-card" class="grid sm:grid-cols-1 md:grid-cols-3 py-6 gap-3 justify-items-start md:justify-items-center items-stretch">
+
+            </div>
+            <!-- inner html -->
+        </div>
+            
+    </section>
 
 
 
-     </section>
+
+
+    <!-- product section-->
+        <section class="sm:px-2 md:px-20">
+
+        <div>
+            <h2 class=" font-bold text-3xl text-left pb-5"> Our Products </h2>
+        </div>
+        <!-- fetch trending card using api -->
+
+        <div >
+            <div id="trending-card" class="grid sm:grid-cols-1 md:grid-cols-3 py-6 gap-3 justify-items-start md:justify-items-center items-stretch">
+
+            </div>
+            <!-- inner html -->
+        </div>
+            
+    </section>
+
+
+    <!-- ----------------------------------------- -->
 
 
     <!-- News letter  section-->
