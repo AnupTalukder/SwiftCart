@@ -1,7 +1,7 @@
 
 
 const GetTrending = () => {
-    url = "https://fakestoreapi.com/products"
+    const url = "https://fakestoreapi.com/products"
     fetch(url)
         .then(res => res.json())
         .then(data => FirstThreeRateSelect(data))
@@ -9,49 +9,35 @@ const GetTrending = () => {
 }
 
 
-//0: {
-// "id": 1,
-// "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-// "price": 109.95,
-// "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-// "category": "men's clothing",
-// "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-// "rating": {
-// "rate": 3.9,
-// "count": 120
-// }
-// },
-
 const FirstThreeRateSelect = (datas) => {
     for (let i = 0; i < 3; i++) {
         ShowTrending(datas[i]);
-        // console.log(datas[i]);
-    }
 
+    }
 
 }
 
 const ShowTrending = (datas) => {
     const SelectContainer = document.getElementById("trending-card")
-    
+
     const CreateDiv = document.createElement("div")
     CreateDiv.innerHTML = `
  
-                <div class="card bg-base-100 w-full max-w-sm shadow-sm">
-                    <figure>
+                <div class="card bg-base-100 w-96 h-100 shadow-sm">
+                    <figure class="overflow-hidden">
                         <img src=${datas.image}
-                             width="300" height="400"/>
+                             class="w-full h-full"/>
                     </figure>
 
-                    <div class="card-body h-full">
+                    <div class="card-body flex flex-col h-full">
                         <h2 class="flex card-title text-sm justify-between text-left">
-                         <p class="text-blue-800 rounded-sm bg-indigo-100 w-1/2 ">${datas.category}</p>
+                         <p class="text-blue-800 bg-rounded-sm">${datas.category}</p>
                             <div class=""><i class="fa-solid fa-star text-yellow-500"></i> ${datas.rating.rate} (${datas.rating.count})</div>
                         </h2>
-                        <p class="pb-3 text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas.title}</p>
+                        <p class="text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas.title}</p>
                         <p class="font-bold pb-2">$ ${datas.price}</p>
-                        <div class="card-actions justify-between">
-                            <div class="badge badge-outline"><i class="fa-regular fa-eye"></i> Details</div>
+                        <div class="card-actions justify-between mt-auto">
+                            <div onclick="showModal(${datas.id})" class="badge badge-outline"><i class="fa-regular fa-eye"></i> Details</div>
                             <div class="badge badge-outline bg-blue-600 text-white px-5 py-3"><i
                                     class="fa-solid fa-cart-shopping"></i> Add</div>
                         </div>
@@ -62,10 +48,225 @@ const ShowTrending = (datas) => {
  `;
 
 
- SelectContainer.append(CreateDiv);
+    SelectContainer.append(CreateDiv);
 
-  }
-
-
+}
 
 GetTrending();
+
+//  show all products 
+
+const GetProductAll = () => {
+    const url = "https://fakestoreapi.com/products"
+    fetch(url)
+        .then(res => res.json())
+        .then(data => ShowProductsAll(data))
+
+
+}
+
+const ShowProductsAll = (datas) => {
+    const SelectContainer = document.getElementById("product-card")
+    SelectContainer.innerHTML = " ";
+
+    for (let i = 0; i < datas.length; i++) {
+
+        const CreateDiv = document.createElement("div")
+        CreateDiv.innerHTML = `
+ 
+                <div class="card bg-base-100 w-96 h-100 shadow-sm">
+                    <figure class="overflow-hidden">
+                        <img src=${datas[i].image}
+                             class="w-full h-full"/>
+                    </figure>
+
+                    <div class="card-body flex flex-col h-full">
+                        <h2 class="flex card-title text-sm justify-between text-left">
+                         <p class="text-blue-800 rounded-sm">${datas[i].category}</p>
+                            <div class=""><i class="fa-solid fa-star text-yellow-500"></i> ${datas[i].rating.rate} (${datas[i].rating.count})</div>
+                        </h2>
+                        <p class="text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas[i].title}</p>
+                        <p class="font-bold pb-2">$ ${datas[i].price}</p>
+                        <div class="card-actions justify-between mt-auto">
+                            <div onclick="showModal(${datas[i].id})" class="badge badge-outline"><i class="fa-regular fa-eye"></i> Details</div>
+                            <div class="badge badge-outline bg-blue-600 text-white px-5 py-3"><i
+                                    class="fa-solid fa-cart-shopping"></i> Add</div>
+                        </div>
+                    </div>
+                </div>
+
+               
+ `;
+
+
+        SelectContainer.append(CreateDiv);
+    }
+}
+
+GetProductAll();
+
+
+
+document.getElementById("btnMen").addEventListener("click", () => {
+    SelectCategory("men's clothing");
+});
+
+document.getElementById("btnWomen").addEventListener("click", () => {
+    SelectCategory("women's clothing");
+});
+
+document.getElementById("btnelec").addEventListener("click", () => {
+    SelectCategory("electronics");
+});
+
+document.getElementById("btnjewel").addEventListener("click", () => {
+    SelectCategory("jewelery");
+});
+
+
+
+
+
+
+
+
+
+const SelectCategory = async (variable) => {
+    const url = "https://fakestoreapi.com/products/categories"
+    const res = await fetch(url)
+    const data = await res.json()
+    data.forEach(element => {
+        if (element === variable) {
+            GetCategoryProduct(element);
+        }
+    })
+
+
+}
+
+
+
+
+const GetCategoryProduct = (category) => {
+
+    const url = `https://fakestoreapi.com/products/category/${category}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => ShowCategoryProducts(data))
+
+}
+
+const ShowCategoryProducts = (datas) => {
+
+    const SelectContainer = document.getElementById("product-card")
+    SelectContainer.innerHTML = " ";
+
+    for (let i = 0; i < datas.length; i++) {
+
+        const CreateDiv = document.createElement("div")
+        CreateDiv.innerHTML = `
+ 
+                <div class="card bg-base-100 w-96 h-100 shadow-sm">
+                   
+                     <div class="overflow-hidden">
+                        <img src=${datas[i].image}
+                             class="w-full h-full"/>
+                     </div>
+
+                    <div class="card-body flex flex-col h-full">
+                        <h2 class="flex card-title text-sm justify-between text-left pb-4">
+                         <p class="text-blue-800 rounded-sm">${datas[i].category}</p>
+                            <div class=""><i class="fa-solid fa-star text-yellow-500">
+                            </i> ${datas[i].rating.rate} (${datas[i].rating.count})
+                            </div>
+                        </h2>
+                        <p class="text-xl overflow-hidden whitespace-nowrap text-ellipsis">${datas[i].title}</p>
+                        <p class="font-bold">$ ${datas[i].price}</p>
+                        <div class="card-actions justify-between mt-auto">
+                            <div class="badge badge-outline" onclick="showModal(${datas[i].id})">
+                                     <i class="fa-regular fa-eye"></i> Details
+                            </div>
+
+                            <div class="badge badge-outline bg-blue-600 text-white px-5 py-3">
+                                  <i class="fa-solid fa-cart-shopping"></i> Add 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+ `;
+
+
+        SelectContainer.append(CreateDiv);
+    }
+}
+
+SelectCategory();
+
+
+//open modal
+
+// const Geting = () => {
+//     const url = "https://fakestoreapi.com/products"
+//     fetch(url)
+//         .then(res => res.json())
+//         .then(data => (data))
+
+// }
+
+
+// // <!-- Open the modal using ID.showModal() method -->
+
+// const showModal = (id) => {
+//     console.log(id);
+
+
+
+//     for (let i = 0; i < data.length; i++) {
+
+//     }
+
+//     const SelectContainer = document.getElementById("show-modal")
+//     SelectContainer.innerHTML = " ";
+
+
+
+//     const CreateDiv = document.createElement("div")
+//     CreateDiv.innerHTML = `
+//         // <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+//     <dialog id="my_modal_2" class="modal">
+//         <div class="modal-box">
+//             <h3 class="text-lg font-bold">Title</h3>
+//             <p class="py-4">Press ESC key or click outside to close</p>
+//             <div class="flex justify-between px-15">
+//                 <p class="font-bold pb-2">price </p>
+//                 <p class="font-bold pb-2">rating </p>
+//             </div>
+//             <button class="btn btn-primary">Buy Now</button>
+//         </div>
+
+
+//         <form method="dialog" class="modal-backdrop">
+//             <button>close</button>
+//         </form>
+//     </dialog>
+//  `;
+
+
+
+// }
+
+const btnPro = document.querySelectorAll(".btnpro");
+const hideAll = document.getElementById("hdnall");
+const productSection = document.getElementById("prod-sec");
+
+const showProductsOnly = () => {
+  hideAll.classList.add("hidden");
+  productSection.classList.remove("hidden");
+};
+
+btnPro.forEach(btn => {
+  btn.addEventListener("click", showProductsOnly);
+});
+z
