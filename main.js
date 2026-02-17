@@ -28,9 +28,9 @@ const ShowTrending = (datas) => {
     CreateDiv.innerHTML = `
  
                 <div class="card bg-base-100 w-96 h-100 shadow-sm hover:bg-indigo-100">
-                    <figure class="overflow-hidden">
+                    <figure class="overflow-hidden object-cover">
                         <img src=${datas.image}
-                             class="w-full h-full"/>
+                             class="w-70 object-cover"/>
                     </figure>
 
                     <div class="card-body flex flex-col h-full">
@@ -81,9 +81,9 @@ const ShowProductsAll = (datas) => {
         CreateDiv.innerHTML = `
  
                 <div class="card bg-base-100 w-96 h-100 shadow-sm hover:bg-indigo-100">
-                    <figure class="overflow-hidden">
+                    <figure class="overflow-hidden object-cover">
                         <img src=${datas[i].image}
-                             class="w-full h-full"/>
+                             class="w-70 object-cover"/>
                     </figure>
 
                     <div class="card-body flex flex-col h-full">
@@ -174,9 +174,9 @@ const ShowCategoryProducts = (datas) => {
  
                 <div class="card bg-base-100 w-96 h-100 shadow-sm hover:bg-indigo-100">
                    
-                     <div class="overflow-hidden">
+                     <div class="overflow-hidden ">
                         <img src=${datas[i].image}
-                             class="w-full h-full"/>
+                             class="w-70 object-cover"/>
                      </div>
 
                     <div class="card-body flex flex-col h-full">
